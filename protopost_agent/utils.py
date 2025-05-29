@@ -10,13 +10,12 @@ def toolify(data):
 
   print("making func with", data)
   def func(json_string: str):
+    #handle cases where llm passes us "double encoded" json
     try:
       parsed = json.loads(json_string)
-      print("data was json string lol")
     except json.JSONDecodeError:
       parsed = json_string
 
-    #TODO: parse json
     return ppcl(data["route"], parsed)
   
   func.__doc__ = desc

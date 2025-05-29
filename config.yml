@@ -10,3 +10,11 @@ routes:
     route: "http://localhost:8125/get_temp"
     description: "get the temperaturee for a given city"
     usage: 'get_temp(<city name here>)'
+  - name: "add"
+    route: "http://localhost:8125/add"
+    description: "add two numbers (a and b) together"
+    usage: 'add({"a": 123, "b": 456})'
+  - name: "fail"
+    route: "http://localhost:8125/fail"
+    description: "run a function that always fails"
+    usage: 'fail(<any input>)'
