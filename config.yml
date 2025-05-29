@@ -1,0 +1,12 @@
+ollama:
+  api_url: "http://127.0.0.1:11434"
+  model: "qwen3:1.7b"
+routes:
+  - name: "get_precip"
+    route: "http://localhost:8125/get_precip"
+    description: "get the precipitation for a given city"
+    usage: 'get_precip(<city name here>)'
+  - name: "get_temp"
+    route: "http://localhost:8125/get_temp"
+    description: "get the temperaturee for a given city"
+    usage: 'get_temp(<city name here>)'
