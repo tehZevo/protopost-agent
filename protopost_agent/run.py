@@ -23,15 +23,26 @@ from .utils import toolify, make_prompt
 
 parser = argparse.ArgumentParser()
 group = parser.add_argument_group("mode")
-#TODO: descriptions ("description")
-group.add_argument("-s", "--service", action="store_const", dest="mode", const="service")
-group.add_argument("-a", "--autonomous", action="store_const", dest="mode", const="autonomous")
+group.add_argument("-s", "--service", action="store_const", dest="mode", const="service",
+    help="Run as a Protopost service"
+)
+group.add_argument("-a", "--autonomous", action="store_const", dest="mode", const="autonomous",
+    help="Run autonomously"
+)
 parser.add_argument("-v", "--verbose", action="store_true")
-parser.add_argument("-i", "--max-iterations", type=int, default=10)
+parser.add_argument("-i", "--max-iterations", type=int, default=10,
+    help="Maximum number of iterations per agent invocation"
+)
 parser.add_argument("-p", "--port", type=int, default="8123")
-parser.add_argument("-l", "--loop", action="store_true")
-parser.add_argument("-d", "--delay", type=float, default=3)
-parser.add_argument("-n", "--niceness", type=float, default=1)
+parser.add_argument("-l", "--loop", action="store_true",
+    help="Loop infinitely in autonomous mode"
+)
+parser.add_argument("-d", "--delay", type=float, default=3,
+    help="Delay in seconds between each agent invocation in autonomous mode"
+)
+parser.add_argument("-n", "--niceness", type=float, default=1,
+    help="Additional ratio of time spent to wait after each agent invocation in autonomous mode"
+)
 args, MESSAGE = parser.parse_known_args()
 
 if len(MESSAGE) > 0:
