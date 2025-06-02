@@ -1,14 +1,13 @@
 from protopost import ProtoPost
 
-def fail(data):
-    raise ValueError("test failed successfully")
-
+def send_update(weather):
+    print(weather)
+    return "Update sent successfully"
 
 routes = {
     "get_precip": lambda city: "currently 30%",
     "get_temp": lambda city: "60 degrees F",
-    "add": lambda data: data["a"] + data["b"],
-    "fail": fail,
+    "send_update": send_update
 }
 
 ProtoPost(routes).start(8125)

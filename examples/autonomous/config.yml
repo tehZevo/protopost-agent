@@ -1,0 +1,17 @@
+ollama:
+  api_url: "http://ollama:11434"
+  model: "qwen3:8b"
+system_prompt: "/nothink Use your tools to send the current full weather forecast update for San Francisco"
+tools:
+  - name: "get_precip"
+    route: "http://localhost:8125/get_precip"
+    description: "get the precipitation for a given city"
+    usage: "get_precip(<city name here>)"
+  - name: "get_temp"
+    route: "http://localhost:8125/get_temp"
+    description: "get the temperature for a given city"
+    usage: "get_temp(<city name here>)"
+  - name: "send_update"
+    route: "http://localhost:8125/send_update"
+    description: "send a weather update"
+    usage: "send_update(<weather update in plain text>)"
